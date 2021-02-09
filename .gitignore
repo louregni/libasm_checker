@@ -1,0 +1,4 @@
+objs/
+tags
+cscope.**
+*.a
