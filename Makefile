@@ -9,10 +9,8 @@ headers_path := headers
 objs := $(unit_test_src:%.c=$(objs_path)/%.o)
 
 # GLOBAL
-AR := ar
-ARFLAGS = rcs $(NAME) $(objs) 
 CC := gcc
-NAME := libasm-checker.a
+NAME := checker
 CFLAGS = -Wall -Wextra -O0 -ggdb -I$(headers_path) #-Werror 
 #CFLAGS = -Wall -Wextra -Werror -I$(headers_path)
 #CFLAGS = -Wall -Wextra -Werror 
@@ -23,7 +21,7 @@ all: $(NAME)
 
 $(NAME): $(objs)
 	@printf "\e[34mGenerated : \e[5;36m$(NAME)\e[0m\n"
-	$(AR) $(ARFLAGS)
+	$(CC) $< -o $(NAME)
 
 print_status: 
 	@printf "\e[92mCompilation's flags: \e[36m$(ASFLAGS)\n"

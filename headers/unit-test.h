@@ -9,6 +9,17 @@
 
 #define LOG(format, ...) dprintf(2, "[%s:%d]:" format, __FILE__, __LINE__, __VA_ARGS__)
 
+typedef struct s_test{
+	void* ft_result;
+	void* std_result;
+	int	code;
+}				t_test;
+
+typedef struct	s_function{
+	const char *ft_function;
+	t_test		test[];
+}				t_function;
+
 #define TEST(function) \
 do { \
 	printf("\n" #function ":"); \
@@ -21,6 +32,11 @@ do { \
 #include <errno.h>
 
 #define DEFAULT_ERRNO -42
+
+#define TEST_SYSCALL(syscall) \
+do { \
+} while (0)
+
 
 #define TEST_SYSCALL(syscall) \
 do { \
